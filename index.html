@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoAd Publisher Landing (Local)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script async src='https://cdn.coad.be3pi.com/js/coad-analytics.js' co-pub='PUB06DEDA025' co-st='SIT0389BDF5B' crossorigin='anonymous'></script>
+  </head>
+  <body>
+    <div class="bg-orb orb-one" aria-hidden="true"></div>
+    <div class="bg-orb orb-two" aria-hidden="true"></div>
+
+    <header class="site-header container reveal">
+      <a class="brand" href="#top">CoAd Publisher</a>
+      <nav class="site-nav">
+        <a href="#ad-demo">Ad Demo</a>
+        <a href="#features">Features</a>
+        <a href="#social-proof">Results</a>
+      </nav>
+      <button class="ghost-btn" data-track-event="open_pricing">Get Pricing</button>
+    </header>
+
+    <main id="top">
+      <section class="hero container reveal">
+        <div>
+          <p class="eyebrow">Built for local ad serving tests</p>
+          <h1>Turn a plain publisher page into a high-converting landing experience.</h1>
+          <p class="hero-copy">
+            This local site simulates real publisher behavior for impression, click, and event tracking
+            while staying simple enough for rapid feature testing.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="track-cta" data-track-event="hero_cta_click">Start Demo Flow</button>
+            <button class="secondary-btn" data-track-event="read_case_study">Read Case Study</button>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Demo Performance Snapshot</h2>
+          <ul>
+            <li><strong>+42%</strong> CTR lift in controlled test</li>
+            <li><strong>84ms</strong> median snippet execution</li>
+            <li><strong>99.9%</strong> event delivery success</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="ad-demo" class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">Ad-Unit Integration</p>
+          <h2>Selector mode and snippet mode in one publisher page</h2>
+        </div>
+
+        <div class="ad-stage">
+          <p>
+            This section demonstrates <code>ads_type = ad-unit</code> with two integration modes:
+            selector-based targeting and DOM snippet-based targeting. ATL should return
+            <code>ad_unit.mode</code> plus <code>ad_unit.selector</code> or <code>ad_unit.snippet_id</code>.
+          </p>
+        </div>
+
+        <div class="ad-stage">
+          <h3>Mode 1: Selector-based Ad-Unit</h3>
+          <p>
+            The slot below requests <code>ad-unit</code> and declares a selector target
+            <code>#my-ad-container</code>.
+          </p>
+          <div
+            id="my-ad-container"
+            class="ad-slot"
+            data-coad-slot="selector-ad-unit-slot"
+            data-coad-format="ad-unit"
+            data-coad-ad-format="native"
+            data-coad-ad-unit-mode="selector"
+            data-coad-ad-unit-selector="#my-ad-container"
+            data-coad-responsive="true"
+            data-coad-lazy="true"
+          >
+            <span>Selector mode placeholder (#my-ad-container)</span>
+          </div>
+        </div>
+
+        <div class="ad-stage">
+          <h3>Mode 2: Snippet-based Ad-Unit</h3>
+          <p>
+            The snippet below follows the <code>&lt;ins class="coadby"&gt;</code> pattern and is mapped by
+            <code>data-coad-ad-unit="coad-inline-01"</code>.
+          </p>
+          <ins
+            class="coadby ad-slot"
+            data-coad-ad-unit="coad-inline-01"
+            data-coad-ad-unit-key="article-inline"
+            data-coad-format="ad-unit"
+            data-coad-ad-format="native"
+            data-coad-ad-unit-mode="snippet"
+            data-coad-responsive="true"
+            data-coad-lazy="true"
+            data-coad-state="idle"
+            style="display:block;min-height:120px"
+          >
+            <div>Snippet mode placeholder (coad-inline-01)</div>
+          </ins>
+        </div>
+      </section>
+
+      <section id="features" class="container feature-grid reveal">
+        <article>
+          <h3>Fast Setup</h3>
+          <p>Only one script include is required for ad serving in auto-placement mode.</p>
+        </article>
+        <article>
+          <h3>Event-rich UX</h3>
+          <p>Hero CTA and interaction points can fire custom analytics events for validation.</p>
+        </article>
+        <article>
+          <h3>Extensible Layout</h3>
+          <p>Add manual slot containers only when fixed placement control is needed.</p>
+        </article>
+      </section>
+
+      <section id="social-proof" class="container proof reveal">
+        <blockquote>
+          “We used this page to validate a full click-to-conversion attribution flow in less than one day.”
+        </blockquote>
+        <p>Internal QA Team, CoAd</p>
+      </section>
+
+      <section class="container event-panel reveal">
+        <h2>Manual Event Test</h2>
+        <p>Click to send a custom analytics event from landing page context.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0;">
+          <input
+            id="test-ip-input"
+            type="text"
+            placeholder="Override IP (e.g. 203.113.5.10 or 2001:db8::1)"
+            style="flex:1;min-width:280px;padding:10px 12px;border:1px solid #d0d5dd;border-radius:10px"
+            value="1.53.0.1"
+          />
+          <button class="secondary-btn" id="save-test-ip" type="button">Save Test IP</button>
+          <button class="ghost-btn" id="clear-test-ip" type="button">Clear Test IP</button>
+        </div>
+        <p id="ip-status" class="status-text">IP override: off (default: browser source IP)</p>
+        <button class="primary-btn" id="track-click" data-track-event="publisher_custom_click" type="button">
+          Track Custom Click Event
+        </button>
+        <p id="event-status" class="status-text">Waiting for action...</p>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const STORAGE_KEY = 'coad_test_ip_override';
+
+        const sanitizeIp = function (value) {
+          const trimmed = (value || '').trim();
+          if (!trimmed) {
+            return '';
+          }
+
+          const ipv4Pattern = /^(?:\d{1,3}\.){3}\d{1,3}$/;
+          if (ipv4Pattern.test(trimmed)) {
+            const parts = trimmed.split('.');
+            for (let i = 0; i < parts.length; i += 1) {
+              const part = Number(parts[i]);
+              if (!Number.isInteger(part) || part < 0 || part > 255) {
+                return '';
+              }
+            }
+            return trimmed;
+          }
+
+          if (trimmed.indexOf(':') !== -1) {
+            return trimmed;
+          }
+
+          return '';
+        };
+
+        const readStoredIp = function () {
+          try {
+            return sanitizeIp(localStorage.getItem(STORAGE_KEY));
+          } catch (_error) {
+            return '';
+          }
+        };
+
+        window.__setCoadTestIp = function (value) {
+          const next = sanitizeIp(value);
+          window.__coadTestIp = next;
+
+          try {
+            if (next) {
+              localStorage.setItem(STORAGE_KEY, next);
+            } else {
+              localStorage.removeItem(STORAGE_KEY);
+            }
+          } catch (_error) {}
+
+          return next;
+        };
+
+        window.__coadTestIp = readStoredIp();
+
+        const originalFetch = window.fetch;
+        if (typeof originalFetch === 'function') {
+          window.fetch = function (input, init) {
+            const testIp = window.__coadTestIp;
+
+            if (!testIp) {
+              return originalFetch.apply(this, arguments);
+            }
+
+            const requestUrl =
+              typeof input === 'string'
+                ? input
+                : input && typeof input.url === 'string'
+                  ? input.url
+                  : '';
+            const isAdRequest = /\/v1\/ad\/(request|request\/unit)/.test(requestUrl);
+
+            if (!isAdRequest) {
+              return originalFetch.apply(this, arguments);
+            }
+
+            const nextInit = init ? Object.assign({}, init) : {};
+            const headers = new Headers(nextInit.headers || (input && input.headers) || undefined);
+            headers.set('X-Coad-Test-IP', testIp);
+            nextInit.headers = headers;
+
+            return originalFetch.call(this, input, nextInit);
+          };
+        }
+
+        const originalOpen = XMLHttpRequest.prototype.open;
+        const originalSend = XMLHttpRequest.prototype.send;
+
+        XMLHttpRequest.prototype.open = function (method, url) {
+          this.__coadReqUrl = typeof url === 'string' ? url : '';
+          return originalOpen.apply(this, arguments);
+        };
+
+        XMLHttpRequest.prototype.send = function (body) {
+          const testIp = window.__coadTestIp;
+          const requestUrl = this.__coadReqUrl || '';
+          const isAdRequest = /\/v1\/ad\/(request|request\/unit)/.test(requestUrl);
+
+          if (testIp && isAdRequest) {
+            try {
+              this.setRequestHeader('X-Coad-Test-IP', testIp);
+            } catch (_error) {}
+          }
+
+          return originalSend.call(this, body);
+        };
+      })();
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
