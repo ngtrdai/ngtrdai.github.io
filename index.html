@@ -1,268 +1,567 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CoAd Publisher Landing (Local)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-    <!-- <script async src='https://s1.coxcdn.com/js/coad-analytics.js' co-pub='PUB071CB73A9' co-st='SIT0D16A328E' crossorigin='anonymous'></script>
-    <script async src='https://s1.coxcdn.com/js/coad-tag.js' co-pub='PUB071CB73A9' co-st='SIT0D16A328E' crossorigin='anonymous'></script> -->
-    <script async src='https://cdn.coad.be3pi.com/js/coad-analytics.js' co-pub='PUB06DEDA025' co-st='SIT074A2A5DC' crossorigin='anonymous'></script>
-    <script async src='https://cdn.coad.be3pi.com/js/coad-tag.js' co-pub='PUB06DEDA025' co-st='SIT074A2A5DC' crossorigin='anonymous'></script>
-  </head>
-  <body>
-    <div class="bg-orb orb-one" aria-hidden="true"></div>
-    <div class="bg-orb orb-two" aria-hidden="true"></div>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Pressworks — Digital Content Publishing</title>
+  <meta name="description" content="Công ty xuất bản nội dung số chuyên về chiến lược, sản xuất, phân phối và tăng trưởng độc giả." />
 
-    <header class="site-header container reveal">
-      <a class="brand" href="#top">CoAd Publisher</a>
-      <nav class="site-nav">
-        <a href="#ad-demo">Ad Demo</a>
-        <a href="#features">Features</a>
-        <a href="#social-proof">Results</a>
+  <script async src='https://s1.coxcdn.com/js/cox-site.js' co-pub='PUB02A522794' co-st='SIT04C755301' crossorigin='anonymous'></script>
+  <script async src='https://s1.coxcdn.com/js/cox-display.js' co-pub='PUB02A522794' co-st='SIT04C755301' crossorigin='anonymous'></script>
+  
+  
+  <style>
+    :root{
+      --bg:#0b1220;
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --faint:rgba(255,255,255,.55);
+      --brand:#7c5cff;
+      --brand-2:#22d3ee;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1180px;
+      --gap:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%,rgba(124,92,255,.35),transparent 55%),
+        radial-gradient(900px 500px at 90% 10%,rgba(34,211,238,.24),transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .card{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+    .card-pad{padding:24px}
+    .muted{color:var(--muted)}
+    .faint{color:var(--faint)}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(9,14,28,.72);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+    }
+
+    .logo{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      padding:0;
+      margin:0;
+    }
+
+    nav a{
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    .btn-primary{
+      border-color:rgba(124,92,255,.55);
+      background:linear-gradient(135deg,rgba(124,92,255,.95),rgba(34,211,238,.70));
+      box-shadow:0 18px 50px rgba(124,92,255,.22);
+    }
+
+    main{padding:42px 0 0}
+    section{scroll-margin-top:90px;margin-bottom:56px}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:var(--gap);
+      align-items:stretch;
+    }
+
+    h1{
+      margin:14px 0 12px;
+      font-size:clamp(36px,4.5vw,58px);
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+
+    h2{font-size:28px;margin:0 0 10px}
+    h3{margin:0 0 8px}
+
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .stat{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+    }
+
+    .stat strong{display:block;font-size:22px}
+    .stat span{color:var(--muted);font-size:13px;font-weight:700}
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-end;
+      margin-bottom:18px;
+    }
+
+    .section-title p{
+      margin:0;
+      max-width:58ch;
+      color:var(--muted);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+    }
+
+    .feature{
+      padding:22px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+    }
+
+    .feature p,.quote p{margin:0;color:var(--muted)}
+
+    .icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(34,211,238,.22));
+      border:1px solid rgba(255,255,255,.14);
+      margin-bottom:12px;
+    }
+
+    .quote{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding:22px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+    }
+
+    .who{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .avatar{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .who span{
+      display:block;
+      font-size:12px;
+      color:var(--faint);
+      font-weight:700;
+    }
+
+    .cta{
+      padding:28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .cta p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+
+    footer{
+      padding:28px 0 42px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:var(--gap);
+    }
+
+    .footer-grid h3{
+      font-size:14px;
+      color:var(--text);
+    }
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .fineprint{
+      margin-top:14px;
+      font-size:12px;
+      color:var(--faint);
+    }
+
+    @media (max-width:980px){
+      .hero-grid,.grid-3,.footer-grid{grid-template-columns:1fr}
+      .section-title,.cta{flex-direction:column;align-items:flex-start}
+      nav ul{display:none}
+      .stats{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Atlas Pressworks home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Atlas Pressworks</span>
+      </a>
+
+      <nav aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#services">Dịch vụ</a></li>
+          <li><a href="#features">Lợi ích</a></li>
+          <li><a href="#work">Dự án</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
       </nav>
-      <button class="ghost-btn" data-track-event="open_pricing">Get Pricing</button>
-    </header>
 
-    <main id="top">
-      <section class="hero container reveal">
-        <div>
-          <p class="eyebrow">Built for local ad serving tests</p>
-          <h1>Turn a plain publisher page into a high-converting landing experience.</h1>
-          <p class="hero-copy">
-            This local site simulates real publisher behavior for impression, click, and event tracking
-            while staying simple enough for rapid feature testing.
+      <a class="btn btn-primary" href="#contact">Nhận tư vấn</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="card card-pad">
+          <span class="pill"><span class="dot"></span> Digital publishing for modern audiences</span>
+          <h1>Xuất bản nội dung số thông minh, chuyên nghiệp và có khả năng tăng trưởng.</h1>
+          <p>
+            Atlas Pressworks giúp doanh nghiệp biến ý tưởng thành nội dung chất lượng cao,
+            tối ưu cho độc giả, công cụ tìm kiếm và các kênh phân phối hiện đại.
           </p>
+
           <div class="hero-actions">
-            <button class="primary-btn" id="track-cta" data-track-event="hero_cta_click">Start Demo Flow</button>
-            <button class="secondary-btn" data-track-event="read_case_study">Read Case Study</button>
+            <a class="btn btn-primary" href="#contact">Trao đổi với chúng tôi</a>
+            <a class="btn" href="#services">Xem dịch vụ</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>+38%</strong>
+              <span>Tăng trưởng tương tác trung bình</span>
+            </div>
+            <div class="stat">
+              <strong>2–6 tuần</strong>
+              <span>Thời gian triển khai</span>
+            </div>
+            <div class="stat">
+              <strong>SEO + Social</strong>
+              <span>Tối ưu phân phối</span>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-card">
-          <h2>Demo Performance Snapshot</h2>
-          <ul>
-            <li><strong>+42%</strong> CTR lift in controlled test</li>
-            <li><strong>84ms</strong> median snippet execution</li>
-            <li><strong>99.9%</strong> event delivery success</li>
-          </ul>
-        </aside>
-      </section>
-
-      <section id="ad-demo" class="container reveal">
-        <div class="section-head">
-          <p class="eyebrow">Ad-Unit Integration</p>
-          <h2>Selector mode and snippet mode in one publisher page</h2>
-        </div>
-
-        <div class="ad-stage">
-          <p>
-            This section demonstrates <code>ads_type = ad-unit</code> with two integration modes:
-            selector-based targeting and DOM snippet-based targeting. ATL should return
-            <code>ad_unit.mode</code> plus <code>ad_unit.selector</code> or <code>ad_unit.snippet_id</code>.
+        <div class="card card-pad">
+          <h2>Chúng tôi xuất bản gì?</h2>
+          <p class="muted">
+            Từ bài viết chuyên sâu, newsletter, nội dung social, multimedia đến các chiến dịch
+            nội dung thương hiệu — tất cả được xây dựng trên nền tảng chiến lược rõ ràng.
           </p>
-        </div>
 
-        <div class="ad-stage">
-          <h3>Mode 1: Selector-based Ad-Unit</h3>
-          <p>
-            The slot below requests <code>ad-unit</code> and declares a selector target
-            <code>#my-ad-container</code>.
-          </p>
-          <div
-            id="my-ad-container"
-            class="ad-slot"
-            data-coad-slot="selector-ad-unit-slot"
-            data-coad-format="ad-unit"
-            data-coad-ad-format="native"
-            data-coad-ad-unit-mode="selector"
-            data-coad-ad-unit-selector="#my-ad-container"
-            data-coad-responsive="true"
-            data-coad-lazy="true"
-          >
-            <span>Selector mode placeholder (#my-ad-container)</span>
+          <div class="feature">
+            <div class="icon">✦</div>
+            <h3>Editorial Studio</h3>
+            <p>Quy trình biên tập, lịch nội dung và hệ thống giọng văn nhất quán.</p>
+          </div>
+
+          <br />
+
+          <div class="feature">
+            <div class="icon">⟡</div>
+            <h3>Distribution Engine</h3>
+            <p>Tối ưu SEO, newsletter và social packaging để nội dung tiếp cận đúng độc giả.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="section-title">
+        <div>
+          <h2>Về Atlas Pressworks</h2>
+          <p>Chúng tôi kết hợp tư duy biên tập, dữ liệu và chiến lược phân phối để xây dựng hệ sinh thái nội dung bền vững.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card card-pad">
+          <h3>Sứ mệnh</h3>
+          <p class="muted">Giúp thương hiệu tạo ra nội dung đáng tin cậy, hữu ích và có khả năng mở rộng.</p>
+        </article>
+        <article class="card card-pad">
+          <h3>Cách tiếp cận</h3>
+          <p class="muted">Từ nghiên cứu độc giả đến sản xuất, phân phối và đo lường hiệu quả.</p>
+        </article>
+        <article class="card card-pad">
+          <h3>Đối tượng phục vụ</h3>
+          <p class="muted">Startup, doanh nghiệp B2B, media brand và các đội marketing tăng trưởng.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="services" class="container">
+      <div class="section-title">
+        <div>
+          <h2>Dịch vụ</h2>
+          <p>Các giải pháp linh hoạt cho đội ngũ cần xây dựng, vận hành hoặc mở rộng hoạt động xuất bản nội dung số.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature">
+          <div class="icon">📰</div>
+          <h3>Chiến lược nội dung</h3>
+          <p>Nghiên cứu chủ đề, insight độc giả, lịch biên tập và kế hoạch định dạng.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🧭</div>
+          <h3>SEO & Discoverability</h3>
+          <p>Tối ưu search intent, cấu trúc nội dung và hiệu suất tìm kiếm.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📮</div>
+          <h3>Newsletter</h3>
+          <p>Thiết kế luồng email, template, chiến lược tăng trưởng và giữ chân độc giả.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🎬</div>
+          <h3>Multimedia</h3>
+          <p>Video ngắn, podcast, infographic và nội dung tương tác.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📈</div>
+          <h3>Analytics</h3>
+          <p>Dashboard, đo lường hiệu quả và framework thử nghiệm nội dung.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <h3>Brand Partnership</h3>
+          <p>Gói tài trợ, media kit và báo cáo hiệu quả chiến dịch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container">
+      <div class="section-title">
+        <div>
+          <h2>Lợi ích chính</h2>
+          <p>Thiết kế cho các thương hiệu cần tốc độ, chất lượng và khả năng đo lường rõ ràng.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card card-pad">
+          <h3>Xuất bản nhanh hơn</h3>
+          <p class="muted">Quy trình rõ ràng giúp đội ngũ sản xuất đều đặn mà không giảm chất lượng.</p>
+        </article>
+        <article class="card card-pad">
+          <h3>Phân phối tốt hơn</h3>
+          <p class="muted">Nội dung được đóng gói phù hợp cho SEO, social, newsletter và các kênh owned media.</p>
+        </article>
+        <article class="card card-pad">
+          <h3>Dữ liệu rõ ràng hơn</h3>
+          <p class="muted">Theo dõi hiệu quả nội dung để tối ưu liên tục theo mục tiêu kinh doanh.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="container">
+      <div class="section-title">
+        <div>
+          <h2>Dự án & phản hồi</h2>
+          <p>Một số nhận xét mẫu từ khách hàng và đối tác nội dung.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote">
+          <p>“Atlas Pressworks giúp chúng tôi xây dựng một hệ thống nội dung có chiến lược và dễ mở rộng.”</p>
+          <div class="who">
+            <div class="avatar"></div>
+            <div>
+              <strong>Jordan Lee</strong>
+              <span>Head of Content, ExampleCo</span>
+            </div>
           </div>
         </div>
 
-        <div class="ad-stage">
-          <h3>Mode 2: Snippet-based Ad-Unit</h3>
-          <p>
-            The snippet below follows the <code>&lt;ins class="coadby"&gt;</code> pattern and is mapped by
-            <code>data-coad-ad-unit="coad-inline-01"</code>.
-          </p>
-          <ins
-            class="coadby ad-slot"
-            data-coad-ad-unit="coad-inline-01"
-            data-coad-ad-unit-key="article-inline"
-            data-coad-format="ad-unit"
-            data-coad-ad-format="native"
-            data-coad-ad-unit-mode="snippet"
-            data-coad-responsive="true"
-            data-coad-lazy="true"
-            data-coad-state="idle"
-            style="display:block;min-height:120px"
-          >
-            <div>Snippet mode placeholder (coad-inline-01)</div>
-          </ins>
+        <div class="quote">
+          <p>“Quy trình biên tập rõ ràng, chất lượng bài viết ổn định và dữ liệu báo cáo rất hữu ích.”</p>
+          <div class="who">
+            <div class="avatar"></div>
+            <div>
+              <strong>Priya Nair</strong>
+              <span>VP Marketing, BrandWorks</span>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section id="features" class="container feature-grid reveal">
-        <article>
-          <h3>Fast Setup</h3>
-          <p>Only one script include is required for ad serving in auto-placement mode.</p>
-        </article>
-        <article>
-          <h3>Event-rich UX</h3>
-          <p>Hero CTA and interaction points can fire custom analytics events for validation.</p>
-        </article>
-        <article>
-          <h3>Extensible Layout</h3>
-          <p>Add manual slot containers only when fixed placement control is needed.</p>
-        </article>
-      </section>
-
-      <section id="social-proof" class="container proof reveal">
-        <blockquote>
-          “We used this page to validate a full click-to-conversion attribution flow in less than one day.”
-        </blockquote>
-        <p>Internal QA Team, CoAd</p>
-      </section>
-
-      <section class="container event-panel reveal">
-        <h2>Manual Event Test</h2>
-        <p>Click to send a custom analytics event from landing page context.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0;">
-          <input
-            id="test-ip-input"
-            type="text"
-            placeholder="Override IP (e.g. 203.113.5.10 or 2001:db8::1)"
-            style="flex:1;min-width:280px;padding:10px 12px;border:1px solid #d0d5dd;border-radius:10px"
-            value="1.53.0.1"
-          />
-          <button class="secondary-btn" id="save-test-ip" type="button">Save Test IP</button>
-          <button class="ghost-btn" id="clear-test-ip" type="button">Clear Test IP</button>
+        <div class="quote">
+          <p>“Đội ngũ này hiểu cách biến nội dung thành một kênh tăng trưởng thực sự.”</p>
+          <div class="who">
+            <div class="avatar"></div>
+            <div>
+              <strong>Sam Chen</strong>
+              <span>Publisher, Daily Brief</span>
+            </div>
+          </div>
         </div>
-        <p id="ip-status" class="status-text">IP override: off (default: browser source IP)</p>
-        <button class="primary-btn" id="track-click" data-track-event="publisher_custom_click" type="button">
-          Track Custom Click Event
-        </button>
-        <p id="event-status" class="status-text">Waiting for action...</p>
-      </section>
-    </main>
-    <script>
-      (function () {
-        const STORAGE_KEY = 'coad_test_ip_override';
+      </div>
+    </section>
 
-        const sanitizeIp = function (value) {
-          const trimmed = (value || '').trim();
-          if (!trimmed) {
-            return '';
-          }
+    <section id="contact" class="container">
+      <div class="card cta">
+        <div>
+          <h2>Sẵn sàng xây dựng hệ thống xuất bản nội dung?</h2>
+          <p>Chia sẻ mục tiêu của bạn, chúng tôi sẽ đề xuất lộ trình nội dung, phân phối và đo lường phù hợp.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:hello@example.com">Liên hệ ngay</a>
+      </div>
+    </section>
+  </main>
 
-          const ipv4Pattern = /^(?:\d{1,3}\.){3}\d{1,3}$/;
-          if (ipv4Pattern.test(trimmed)) {
-            const parts = trimmed.split('.');
-            for (let i = 0; i < parts.length; i += 1) {
-              const part = Number(parts[i]);
-              if (!Number.isInteger(part) || part < 0 || part > 255) {
-                return '';
-              }
-            }
-            return trimmed;
-          }
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <span class="logo"></span>
+          <span>Atlas Pressworks</span>
+        </div>
+        <p class="muted">Digital content publishing, distribution and growth for modern brands.</p>
+        <div class="fineprint">© <span id="year"></span> Atlas Pressworks. All rights reserved.</div>
+      </div>
 
-          if (trimmed.indexOf(':') !== -1) {
-            return trimmed;
-          }
+      <div>
+        <h3>Công ty</h3>
+        <div class="footer-links">
+          <a href="#about">Giới thiệu</a>
+          <a href="#work">Dự án</a>
+          <a href="#contact">Liên hệ</a>
+        </div>
+      </div>
 
-          return '';
-        };
+      <div>
+        <h3>Tài nguyên</h3>
+        <div class="footer-links">
+          <a href="#services">Dịch vụ</a>
+          <a href="#features">Lợi ích</a>
+          <a href="#top">Lên đầu trang</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        const readStoredIp = function () {
-          try {
-            return sanitizeIp(localStorage.getItem(STORAGE_KEY));
-          } catch (_error) {
-            return '';
-          }
-        };
-
-        window.__setCoadTestIp = function (value) {
-          const next = sanitizeIp(value);
-          window.__coadTestIp = next;
-
-          try {
-            if (next) {
-              localStorage.setItem(STORAGE_KEY, next);
-            } else {
-              localStorage.removeItem(STORAGE_KEY);
-            }
-          } catch (_error) {}
-
-          return next;
-        };
-
-        window.__coadTestIp = readStoredIp();
-
-        const originalFetch = window.fetch;
-        if (typeof originalFetch === 'function') {
-          window.fetch = function (input, init) {
-            const testIp = window.__coadTestIp;
-
-            if (!testIp) {
-              return originalFetch.apply(this, arguments);
-            }
-
-            const requestUrl =
-              typeof input === 'string'
-                ? input
-                : input && typeof input.url === 'string'
-                  ? input.url
-                  : '';
-            const isAdRequest = /\/v1\/ad\/(request|request\/unit)/.test(requestUrl);
-
-            if (!isAdRequest) {
-              return originalFetch.apply(this, arguments);
-            }
-
-            const nextInit = init ? Object.assign({}, init) : {};
-            const headers = new Headers(nextInit.headers || (input && input.headers) || undefined);
-            headers.set('X-Coad-Test-IP', testIp);
-            nextInit.headers = headers;
-
-            return originalFetch.call(this, input, nextInit);
-          };
-        }
-
-        const originalOpen = XMLHttpRequest.prototype.open;
-        const originalSend = XMLHttpRequest.prototype.send;
-
-        XMLHttpRequest.prototype.open = function (method, url) {
-          this.__coadReqUrl = typeof url === 'string' ? url : '';
-          return originalOpen.apply(this, arguments);
-        };
-
-        XMLHttpRequest.prototype.send = function (body) {
-          const testIp = window.__coadTestIp;
-          const requestUrl = this.__coadReqUrl || '';
-          const isAdRequest = /\/v1\/ad\/(request|request\/unit)/.test(requestUrl);
-
-          if (testIp && isAdRequest) {
-            try {
-              this.setRequestHeader('X-Coad-Test-IP', testIp);
-            } catch (_error) {}
-          }
-
-          return originalSend.call(this, body);
-        };
-      })();
-    </script>
-    <script src="./app.js"></script>
-  </body>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
